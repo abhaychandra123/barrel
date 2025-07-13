@@ -52,11 +52,11 @@ if 'answered' not in st.session_state:
 # --- UI ---
 st.markdown(f"<h1 style='text-align:center;'>{GAME_TITLE}</h1>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center;font-size:1.2em;'>Round <b>{st.session_state.round}</b> &nbsp;|&nbsp; Score: <b>{st.session_state.score}</b> &nbsp;|&nbsp; Streak: <b>{st.session_state.streak}</b></div>", unsafe_allow_html=True)
-st.markdown("<br>")
+
 
 # --- SHOW IMAGE ---
 st.image(st.session_state.answer_url, use_container_width=True, caption='Which movie is this?')
-st.markdown("<br>")
+
 
 # --- GAME LOGIC ---
 if st.session_state.selected is None:
@@ -80,7 +80,7 @@ else:
             st.session_state.feedback = f'❌ **Wrong!** The answer was: {clean_title(st.session_state.answer)}'
         st.session_state.answered = True
     st.markdown(f"<div style='text-align:center;font-size:1.5em;'>{st.session_state.feedback}</div>", unsafe_allow_html=True)
-    st.markdown("<br>")
+    st.markdown("&nbsp;", unsafe_allow_html=True)
     if st.button('Next ▶️', key='next-btn', use_container_width=True):
         answer, answer_url, options = pick_round(df)
         st.session_state.answer = answer
